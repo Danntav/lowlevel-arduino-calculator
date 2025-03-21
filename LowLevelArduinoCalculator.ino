@@ -29,14 +29,7 @@ void setup() {
   lcd.backlight();
   lcd.clear();
   lcd.setCursor(0,0);
-  /*  OBS 
-  Eu tentei de toda maneira conectar os pinos do teclado matricial em sequencia no arduino, de D2 até D9.
-  O que acontecia é que os pinos D6 e D7 fazem parte do mesmo Reg (DDR que é equivalente ao TRIS) dos pinos D2 a D5 do arduino.
-  Bem, mesmo sendo assim, não vejo problema. Porém, eu não consegui fazer funcionar de maneira nenhuma.
-  Mudei todos os parametros, inúmeras e inúmeras vezes. A primeira coluna do teclado simplesmente nao funcionava, até pensei que poderia ser algum problema de hardware.
-  Quando cansei, resolvi separar melhor as colunas das linhas, cada um com um registrador específico.
-  Linhas ficaram no RegD. Colunas ficaram no RegB. Dessa forma funcionou como esperado.
-  */
+
 
   DDRD |= 0b00111100; //linhas (D2 a D5) como saída. 
   DDRB &= ~0b00001111; // Colunas (D8 a D11) como entrada, e o resto tanto faz.
